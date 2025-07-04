@@ -1,6 +1,10 @@
 # 7-Zip-JBinding-4Android
 > Android Java wrapper for 7z archiver engine
 
+>⚠️
+1.项目文件夹中的 cod.7z 是一个可以测试的 7z 文件且带密码，密码 123456，推到data/data/包名的cache目录里面跑 demo 可测试，看日志输出正常
+2.项目文件夹中的 sevenzipjbinding_16.02-2.02_2025_0704_1436.aar 是执行sevenzipjbinding的assembleRelease任务输出的 aar 成品，可直接下载去项目依赖
+
 ## Summary
 Android library version of [7-Zip-JBinding](http://sevenzipjbind.sourceforge.net/) java wrapper.
 
