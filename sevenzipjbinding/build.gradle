@@ -25,6 +25,19 @@ android {
     }
 }
 
+// 修改aar名称
+android.libraryVariants.all { variant ->
+    variant.outputs.all { output ->
+        def f = output.outputFileName
+        println("===========variant=======>outputs:${f}")
+        if (f != null && f.endsWith('.aar')) {
+            def version = variant.mergedFlavor.versionName ?: android.defaultConfig.versionName
+            def timestamp = new Date().format("yyyy_MMdd_HHmm", TimeZone.getTimeZone("GMT+08:00"))
+            output.outputFileName = "sevenzipjbinding_${version}_${timestamp}.aar"
+        }
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'

@@ -334,8 +334,6 @@ add_definitions(
         -D_UNICODE
         )
 
-add_definitions(-DPAGE_SIZE=16384)
-
 if(CMAKE_BUILD_TYPE MATCHES Debug)
         add_definitions(-D_DEBUG)
 elseif(CMAKE_BUILD_TYPE MATCHES Release)
@@ -365,3 +363,6 @@ find_library(LOG-LIB
 set_target_properties(${TARGET} PROPERTIES LINK_FLAGS "-Wl,-z,defs -Wl,--no-undefined")
 target_link_libraries(${TARGET}
         ${LOG-LIB})
+
+#target_compile_definitions(${TARGET} PRIVATE PAGE_SIZE=16384)
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-z,max-page-size=16384")
